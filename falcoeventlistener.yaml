@@ -6,6 +6,8 @@ metadata:
   labels:
     app: falco-event-listener
 spec:
+  imagePullSecrets:
+  - name: gcr-io
   containers:
   - image: ko://github.com/developer-guy/falco-event-listener
     name: falco-event-listener
