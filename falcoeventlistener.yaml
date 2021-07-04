@@ -20,12 +20,16 @@ spec:
       - "alpine.yaml"
       - "--github-token"
       - "$(GITHUB_TOKEN)"
+      - "--notify-url"
+      - "http://receiver.flux-system/$(WEBHOOK_URL)"
     env:
       - name: GITHUB_TOKEN
         valueFrom:
           secretKeyRef:
             name: github-secret
             key: GITHUB_TOKEN
+      - name: WEBHOOK_URL
+        value: "/hook/e59198f753f08f9b720145ce8b3b22cae05d093c1142ee201416025c1bd27870"
 ---
 apiVersion: v1
 kind: Service
